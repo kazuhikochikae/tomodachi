@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -16,15 +16,11 @@
     <% end %>
 
     <% if logged_in? %>
-    <div class="Log_box">
       <%= link_to "Profile", user_path(current_user.id) %>
       <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    </div>
     <% else %>
-    <div class="Sign_box">
       <%= link_to "Sign up", new_user_path %>
       <%= link_to "Login", new_session_path %>
-    <div>
     <% end %>
 
     <%= yield %>
