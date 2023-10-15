@@ -8,7 +8,7 @@
 
 <% @blogs.each do |blog| %>
   <tr>
-    <td><%= blog.title %></td>
+    <td> <%= image_tag blog.title.url %></td>
     <td><%= blog.content %></td>
       <td><%= blog.user.name%></td>
 <td><%= link_to '詳細を確認する', blog_path(blog.id) %></td>

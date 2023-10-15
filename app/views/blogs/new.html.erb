@@ -10,11 +10,16 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="blog_title">
 
     <%= form.label :title %>
+    <!-- 確認画面から新規作成画面に戻った時に、 -->
+    <!-- アップロードした画像を表示させるための記述 -->
+    <%= image_tag(@blog.title.url) if @blog.title && @blog.title.url %>
   <%= form.file_field :title %>
+
+  <%= form.hidden_field :image_cache %>
   </div>
   <div class="blog_content">
     <%= form.label :content %>
@@ -22,3 +27,4 @@
   </div>
   <%= form.submit %>
 <% end %>
+
