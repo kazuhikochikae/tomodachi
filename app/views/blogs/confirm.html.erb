@@ -2,12 +2,12 @@
 <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
   <!-- 確認画面でアップロードした画像を表示させるための記述 -->
   <%= image_tag(@blog.title.url) if @blog.title && @blog.title.url %>
-  <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :title_cache %>
   <%= form.submit "投稿する" %>
 <% end %>
 
 <%= form_with(model:@blog, url:new_blog_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :title_cache %>
   <%= form.submit "戻る", name: "back" %>
 <% end %>
 
